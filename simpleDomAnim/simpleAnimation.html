@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', () => {
+        let start = null
+        const redSquare = document.getElementById('redSquare')
+        function step (timestamp) {
+          if (start === null) {
+            start = timestamp
+          }
+          const progress = timestamp - start
+          redSquare.style.left = `${progress / 10}px`
+          if (progress < 2000) {
+            requestAnimationFrame(step)
+          }
+        }
+        requestAnimationFrame(step)
+      })
+    </script>
+  </head>
+  <body>
+    <div id="redSquare" style="position:absolute;">
+      <img src="img/logo-rennesjs.jpg" />
+    </div>
+  </body>
+</html>
